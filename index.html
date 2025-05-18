@@ -574,6 +574,71 @@
             background-size: 100% 50%;
         }
     }
+    /* Custom Styles for Enhanced Modal */
+  .btn-group-pills .btn-pill {
+    border-radius: 50px !important;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    background: white;
+  }
+  
+  .btn-group-pills .btn-pill.active {
+    background: var(--quantic-primary);
+    color: white;
+    border-color: var(--quantic-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(26, 109, 141, 0.2);
+  }
+  
+  .portfolio-card {
+    transition: all 0.3s ease;
+    border-radius: 12px !important;
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 109, 141, 0.15) !important;
+  }
+  
+  .portfolio-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0 !important;
+  }
+  
+  .portfolio-image {
+    transition: transform 0.5s ease;
+  }
+  
+  .portfolio-hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 109, 141, 0.85) 0%, rgba(137, 186, 199, 0.85) 100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    transition: opacity 0.3s ease;
+  }
+  
+  .portfolio-card:hover .portfolio-hover-content {
+    opacity: 1;
+  }
+  
+  .portfolio-card:hover .portfolio-image {
+    transform: scale(1.05);
+  }
+  
+  #lightboxModal .modal-content {
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+  }
     </style>
 </head>
 <body>
@@ -1031,6 +1096,64 @@
                                 <a href="https://api.whatsapp.com/send?phone=254738477554" class="btn btn-outline-primary px-4">
                                     <i class="bi bi-whatsapp me-2"></i>Discuss Project
                                 </a>
+                                 <a href="portfolio.html" class="btn btn-primary px-4">
+                                    <i class="bi bi-laptop me-2"></i>View Projects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Graphic Design Service -->
+            <div class="col-md-6 col-lg-4 service-item">
+                <div class="service-card card border-0 shadow-sm h-100" data-bs-toggle="collapse" href="#graphic-design-details">
+                    <div class="card-body p-4">
+                        <div class="service-icon bg-primary bg-opacity-10 text-primary rounded-3 p-3 mb-4" style="width: fit-content;">
+                            <i class="bi bi-brush fs-3"></i>
+                        </div>
+                        <h3 class="h4 mb-3">Graphic Design</h3>
+                        <p class="text-muted mb-4">Professional designs for posters, certificates, and marketing materials.</p>
+                        <div class="d-flex align-items-center">
+                            <span class="text-primary fw-bold me-2">Learn more</span>
+                            <i class="bi bi-arrow-right-short fs-5"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-details collapse" id="graphic-design-details" data-parent="#services-container">
+                    <div class="card mt-3 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Graphic Design Services</h4>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                                        <h5 class="text-primary">Print Materials</h5>
+                                        <ul class="text-muted small mb-0 ps-3">
+                                            <li>Business cards</li>
+                                            <li>Brochures & flyers</li>
+                                            <li>Posters & banners</li>
+                                            <li>Certificates</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                                        <h5 class="text-primary">Digital Designs</h5>
+                                        <ul class="text-muted small mb-0 ps-3">
+                                            <li>Social media graphics</li>
+                                            <li>Email templates</li>
+                                            <li>Presentation designs</li>
+                                            <li>Logo creation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <a href="https://api.whatsapp.com/send?phone=254738477554" class="btn btn-outline-primary px-4 me-2">
+                                    <i class="bi bi-whatsapp me-2"></i>Request Design
+                                </a>
+                                <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#graphicDesignPortfolio">
+                                    <i class="bi bi-images me-2"></i>View Samples
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1162,6 +1285,124 @@
         </div>
     </div>
 </section>
+<!-- Graphic Design Portfolio Modal -->
+<div class="modal fade" id="graphicDesignPortfolio" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-centered">
+    <div class="modal-content border-0" style="background-color: #f8fafc;">
+      <div class="modal-header border-0 position-relative">
+        <div class="w-100 text-center">
+          <h2 class="modal-title display-5 fw-bold text-primary">Our Design Gallery</h2>
+          <p class="text-muted">Explore our creative work</p>
+        </div>
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body p-4">
+        <!-- Animated Filter Tabs -->
+        <div class="d-flex justify-content-center mb-5">
+          <div class="btn-group btn-group-pills shadow-sm" role="group">
+            <button type="button" class="btn btn-pill active" data-filter="all">
+              <i class="bi bi-grid-fill me-2"></i>All
+            </button>
+            <button type="button" class="btn btn-pill" data-filter="posters">
+              <i class="bi bi-file-image me-2"></i>Posters
+            </button>
+            <button type="button" class="btn btn-pill" data-filter="certificates">
+              <i class="bi bi-award me-2"></i>Certificates
+            </button>
+            <button type="button" class="btn btn-pill" data-filter="branding">
+              <i class="bi bi-brush me-2"></i>Branding
+            </button>
+          </div>
+        </div>
+        
+        <!-- Interactive Portfolio Grid -->
+        <div class="row g-4 portfolio-grid" id="masonry-grid">
+          <!-- Sample 1 - Poster -->
+          <div class="col-lg-4 col-md-6 portfolio-item" data-category="posters">
+            <div class="portfolio-card card border-0 shadow-sm overflow-hidden h-100">
+              <div class="portfolio-image-wrapper">
+                <img src="https://source.unsplash.com/random/600x800/?poster,design" 
+                     class="img-fluid w-100 portfolio-image" 
+                     alt="Music Festival Poster"
+                     loading="lazy">
+                <div class="portfolio-hover-content">
+                  <h5 class="text-white fw-bold">Music Festival</h5>
+                  <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-light zoom-btn" data-img="https://source.unsplash.com/random/600x800/?poster,design">
+                      <i class="bi bi-zoom-in"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light view-details-btn">
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-primary bg-opacity-10 text-primary">Poster</span>
+                  <small class="text-muted">2023</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sample 2 - Certificate -->
+          <div class="col-lg-4 col-md-6 portfolio-item" data-category="certificates">
+            <div class="portfolio-card card border-0 shadow-sm overflow-hidden h-100">
+              <div class="portfolio-image-wrapper">
+                <img src="/Images/CertificateTemplateDesign3.jpg" 
+                     class="img-fluid w-100 portfolio-image" 
+                     alt="Achievement Certificate"
+                     loading="lazy">
+                <div class="portfolio-hover-content">
+                  <h5 class="text-white fw-bold">Achievement Award</h5>
+                  <div class="d-flex gap-2 mt-3">
+                    <button class="btn btn-sm btn-light zoom-btn" data-img="/Images/CertificateTemplateDesign3.jpg">
+                      <i class="bi bi-zoom-in"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-light view-details-btn">
+                      Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-primary bg-opacity-10 text-primary">Certificate</span>
+                  <small class="text-muted">2024</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Add more samples following the same pattern -->
+        </div>
+      </div>
+      
+      <div class="modal-footer border-0 justify-content-center">
+        <button class="btn btn-primary px-4" data-bs-dismiss="modal">
+          <i class="bi bi-check-circle me-2"></i>Got Inspired? Let's Create Yours
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="" id="lightboxImage" class="img-fluid rounded-3 shadow-lg" style="max-height: 80vh;">
+        <p id="lightboxCaption" class="text-white mt-3"></p>
+      </div>
+    </div>
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -1236,4 +1477,57 @@
            });
        });
    </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        portfolioItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Lightbox functionality
+    const zoomButtons = document.querySelectorAll('.zoom-btn');
+    const lightboxModal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+    
+    zoomButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const imgSrc = this.getAttribute('data-img');
+        const caption = this.closest('.portfolio-card').querySelector('img').alt;
+        
+        document.getElementById('lightboxImage').src = imgSrc;
+        document.getElementById('lightboxCaption').textContent = caption;
+        lightboxModal.show();
+      });
+    });
+    
+    // View details functionality
+    const detailButtons = document.querySelectorAll('.view-details-btn');
+    detailButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const card = this.closest('.portfolio-card');
+        const title = card.querySelector('.portfolio-hover-content h5').textContent;
+        const category = card.querySelector('.badge').textContent;
+        const year = card.querySelector('.text-muted').textContent;
+        
+        // You can implement a detailed view modal here
+        alert(`Project: ${title}\nCategory: ${category}\nYear: ${year}`);
+      });
+    });
+  });
+</script>
+</body>
 </html>
